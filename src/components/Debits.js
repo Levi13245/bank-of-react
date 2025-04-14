@@ -33,47 +33,50 @@ class Debits extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <h1>Debits</h1>
-        <Link to="/">Return to Home</Link>
+        <Link to="/" className="nav-link">Return to Home</Link>
         
         <AccountBalance accountBalance={this.props.accountBalance} />
         
-        <h2>Add Debit</h2>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <label>Description:</label>
-            <input 
-              type="text" 
-              value={this.state.description}
-              onChange={this.handleDescriptionChange} 
-              required
-            />
-          </div>
-          <div>
-            <label>Amount:</label>
-            <input 
-              type="number" 
-              step="0.01"
-              min="0"
-              value={this.state.amount}
-              onChange={this.handleAmountChange} 
-              required
-            />
-          </div>
-          <button type="submit">Add Debit</button>
-        </form>
+        <div className="form-container">
+          <h2>Add Debit</h2>
+          <form onSubmit={this.handleSubmit}>
+            <div className="form-group">
+              <label>Description:</label>
+              <input 
+                type="text" 
+                value={this.state.description}
+                onChange={this.handleDescriptionChange} 
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label>Amount:</label>
+              <input 
+                type="number" 
+                step="0.01"
+                min="0"
+                value={this.state.amount}
+                onChange={this.handleAmountChange} 
+                required
+              />
+            </div>
+            <button type="submit">Add Debit</button>
+          </form>
+        </div>
 
-        <h2>Debit History</h2>
-        <ul>
+        <div className="transaction-list">
+          <h2>Debit History</h2>
           {this.props.debits.map((debit, index) => (
-            <li key={index}>
-              Description: {debit.description} | 
-              Amount: ${debit.amount.toFixed(2)} | 
-              Date: {debit.date}
-            </li>
+            <div className="transaction-item" key={index}>
+              <span>
+                <strong>{debit.description}</strong> ({debit.date})
+              </span>
+              <span>${debit.amount.toFixed(2)}</span>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     );
   }

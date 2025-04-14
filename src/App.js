@@ -5,6 +5,7 @@ import UserProfile from './components/UserProfile';
 import Login from './components/Login';
 import Credits from './components/Credits';
 import Debits from './components/Debits';
+import './App.css';
 
 class App extends Component {
   constructor() {

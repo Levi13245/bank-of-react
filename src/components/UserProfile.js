@@ -4,11 +4,20 @@ import { Link } from 'react-router-dom';
 class UserProfile extends Component {
   render() {
     return (
-      <div>
+      <div className="container">
         <h1>User Profile</h1>
-        <div>Username: {this.props.userName}</div>
-        <div>Member Since: {this.props.memberSince}</div>
-        <Link to="/">Return to Home</Link>
+        <Link to="/" className="nav-link">Return to Home</Link>
+        
+        <div className="form-container">
+          <div className="form-group">
+            <label>Username:</label>
+            <p>{this.props.userName}</p>
+          </div>
+          <div className="form-group">
+            <label>Member Since:</label>
+            <p>{this.props.memberSince}</p>
+          </div>
+        </div>
       </div>
     );
   }
